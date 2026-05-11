@@ -6,7 +6,7 @@ export function FundingDashboard() {
         <h2 className="mt-2 text-3xl font-black">Samen kijken waar ondersteuning het meeste verschil maakt</h2>
         <p className="mt-4 max-w-3xl leading-8 text-ink/70">
           Voor financiers laat FONK zien welke projecten impact maken, schaalbaar zijn en daadwerkelijk bijdragen aan passende zorg,
-          arbeidsbesparing of kwaliteit. Subsidie wordt gekoppeld aan bewezen praktijkwaarde, niet alleen aan een goed geschreven aanvraag.
+          arbeidsbesparing of kwaliteit. Subsidie wordt gekoppeld aan geteste praktijkwaarde, niet alleen aan een goed geschreven aanvraag.
         </p>
         <div className="mt-8 grid gap-4 md:grid-cols-5">
           {[

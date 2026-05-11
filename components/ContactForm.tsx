@@ -65,7 +65,7 @@ export function ContactForm() {
           </button>
           {submitted && (
             <p className="rounded-2xl bg-mist p-4 text-sm font-bold leading-6 text-petrol" role="status">
-              Dank je. In deze voorbeeldomgeving is het formulier niet gekoppeld aan e-mail. Gebruik deze velden om de aanvraagflow te bekijken.
+              Dank je wel. We nemen contact op om samen te kijken wat past. In deze voorbeeldomgeving is het formulier nog niet gekoppeld aan e-mail.
             </p>
           )}
         </form>

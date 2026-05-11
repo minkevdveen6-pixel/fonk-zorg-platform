@@ -97,7 +97,7 @@ export function getScanRecommendations(score: number): string[] {
   return [
     "Gebruik de huidige energie om succesvolle experimenten verantwoord op te schalen.",
     "Leg vast welke sociale patronen bijdragen aan implementatiekracht.",
-    "Maak teams ambassadeur van bewezen verbeteringen, niet alleen ontvanger van beleid.",
+    "Maak teams ambassadeur van geteste verbeteringen, niet alleen ontvanger van beleid.",
   ];
 }
 

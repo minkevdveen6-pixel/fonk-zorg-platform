@@ -490,7 +490,7 @@ export const kwadrantProjects: KwadrantProject[] = [
     departments: ["Externe partners", "Communicatie", "Zorgteams", "Management"],
     capacity: 280,
     financialImpact: "gedeelde leeropbrengst",
-    qualityImpact: "sneller bewezen aanpakken",
+    qualityImpact: "sneller geteste aanpakken",
     employeeImpact: "meer eigenaarschap",
     clientImpact: "zorg dichter bij behoefte",
     risk: "Regionale planning en besluitvorming lopen uiteen.",
@@ -516,6 +516,53 @@ export const kwadrantProjects: KwadrantProject[] = [
     governance: "Wachten op prioriteitskeuze.",
     nextStep: "Op parkeerstand houden",
     progress: 18,
+  },
+];
+
+export const projectDepartmentDetails = [
+  ["HR", "Scholing, rollen en werkdruk bewaken.", "Voor uitvoering", "8 uur", "Advies en borging", "Intake, start uitvoering, evaluatie"],
+  ["Kwaliteit", "Risico’s, protocollen en PDCA vastleggen.", "Vanaf intake", "12 uur", "Kwaliteitsadvies", "Intake, risicoreview, borging"],
+  ["ICT/BIS", "Applicaties, koppelingen en informatiebeveiliging toetsen.", "Voor besluit", "14 uur", "Technische haalbaarheid", "Intake, testfase, livegang"],
+  ["Facilitair", "Praktische randvoorwaarden en middelen afstemmen.", "Voor uitvoering", "4 uur", "Praktische ondersteuning", "Start uitvoering"],
+  ["Communicatie", "Teams helder informeren over doel en planning.", "Voor testfase", "5 uur", "Uitleg en updates", "Voor test, bij opschaling"],
+  ["Finance", "Kosten, baten en structurele dekking bekijken.", "Voor prioritering", "6 uur", "Businesscase", "Prioritering, evaluatie"],
+  ["Planning", "Roosters, capaciteit en uitvoerbaarheid bewaken.", "Vanaf intake", "8 uur", "Capaciteitscheck", "Intake, testfase"],
+  ["Zorgteams", "Praktijkkennis, testen en signalen inbrengen.", "Vanaf start", "16 uur", "Praktijktoets", "Intake, test, evaluatie"],
+  ["OR", "Medewerkersimpact en medezeggenschap volgen.", "Bij impact op werk", "4 uur", "Medezeggenschap", "Voor besluit"],
+  ["Cliëntenraad", "Cliëntperspectief en passende zorg toetsen.", "Bij cliëntimpact", "4 uur", "Cliëntperspectief", "Voor testfase"],
+  ["Management", "Prioriteit, scope en besluitvorming bewaken.", "Vanaf start", "10 uur", "Opdracht en keuzes", "Intake, stuurgroep, evaluatie"],
+];
+
+export const projectSignals = [
+  ["Nieuw signaal", "Team ziet overlap met bestaande werkwijze.", "Bespreken in projectoverleg"],
+  ["Bespreken", "Capaciteit van BIS/ICT is krap in de testfase.", "Keuze op planning nodig"],
+  ["Kleine verbetering", "Formulier kan met twee velden korter.", "Meenemen in volgende test"],
+  ["Procesaanpassing", "Werkafspraak moet worden aangepast voor Zorg Thuis.", "Kwaliteit en teamleider betrekken"],
+  ["Mogelijk nieuw project", "Regionale koppeling vraagt aparte besluitvorming.", "Parkeren tot scope helder is"],
+  ["Monitoren", "Effect op werkdruk verschilt per locatie.", "Na 4 weken opnieuw meten"],
+];
+
+export const fonkMatchExamples = [
+  {
+    theme: "Registratiedruk verminderen",
+    organizations: "Kwadrant + voorbeeldorganisatie",
+    score: "84%",
+    why: ["vergelijkbaar probleem", "vergelijkbare doelgroep", "overlap in betrokken afdelingen", "vergelijkbare impactdoelen"],
+    learning: "Meet tijdswinst klein per team voordat je opschaalt.",
+  },
+  {
+    theme: "Medicatieveiligheid",
+    organizations: "Kwadrant + 3 regio-organisaties",
+    score: "88%",
+    why: ["zelfde risico in overdracht", "kwaliteit en BIS/ICT betrokken", "vergelijkbare cliëntgroep", "behoefte aan korte teamcheck"],
+    learning: "Een korte teamhuddle werkt beter dan extra instructiedocumenten.",
+  },
+  {
+    theme: "Regionale wondzorg",
+    organizations: "Kwadrant + AWIZ Connect",
+    score: "78%",
+    why: ["zelfde regionale uitdaging", "gedeelde schaarste in expertise", "zelfde opschalingsvraag", "mogelijke gezamenlijke leeragenda"],
+    learning: "Begin met gedeelde casuïstiek voordat processen worden gelijkgetrokken.",
   },
 ];
 

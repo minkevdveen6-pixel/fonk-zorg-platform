@@ -8,6 +8,7 @@ const statuses = ["Nieuw idee", "In beoordeling", "Omzetten naar project", "Park
 
 export function IdeasHub() {
   const [submitted, setSubmitted] = useState(false);
+  const [activeIdea, setActiveIdea] = useState(ideas[0]);
 
   return (
     <section className="container-page py-16 text-ink">
@@ -61,6 +62,13 @@ export function IdeasHub() {
                   <span className="rounded-2xl bg-white/85 p-3">Impact {idea.impact}</span>
                   <span className="rounded-2xl bg-white/85 p-3">Haalbaarheid {idea.feasibility}</span>
                 </div>
+                <button
+                  type="button"
+                  onClick={() => setActiveIdea(idea)}
+                  className="focus-ring mt-4 inline-flex rounded-full bg-petrol px-5 py-3 text-sm font-black text-cream"
+                >
+                  Bekijk ideedetail
+                </button>
               </article>
             ))}
           </div>
@@ -70,6 +78,27 @@ export function IdeasHub() {
                 {status}
               </span>
             ))}
+          </div>
+          <div className="mt-6 rounded-[1.5rem] bg-mist p-5">
+            <p className="text-sm font-black uppercase tracking-[0.12em] text-petrol">Ideedetail</p>
+            <h3 className="mt-2 text-2xl font-black text-ink">{activeIdea.idea}</h3>
+            <dl className="mt-5 grid gap-3 md:grid-cols-2">
+              {[
+                ["Indiener", activeIdea.employee],
+                ["Team/locatie", activeIdea.team],
+                ["Probleem", activeIdea.review],
+                ["Voorstel", "Klein testen met het betrokken team en daarna effect bespreken."],
+                ["Status", activeIdea.status],
+                ["Reactie projectleider", activeIdea.review],
+                ["Mogelijke vervolgstap", activeIdea.status === "Nieuw idee" ? "Bespreken in ideeënronde" : "Koppelen aan projectroute"],
+                ["Gekoppeld project", activeIdea.linkedProject],
+              ].map(([label, value]) => (
+                <div key={label} className="rounded-2xl bg-white p-4">
+                  <dt className="text-xs font-black uppercase tracking-[0.12em] text-ink/45">{label}</dt>
+                  <dd className="mt-1 text-sm font-bold leading-6 text-ink/72">{value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>

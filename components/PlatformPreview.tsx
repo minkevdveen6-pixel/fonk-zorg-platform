@@ -7,7 +7,7 @@ const modules = [
   { icon: Building2, title: "Overzicht voor MT en directie", text: "Zie wat loopt, wat prioriteit heeft en waar teams ondersteuning nodig hebben." },
   { icon: UsersRound, title: "Ruimte voor medewerkers", text: "Medewerkers delen ideeën, knelpunten en vragen en zien wat ermee gebeurt." },
   { icon: HeartHandshake, title: "Slimme hulp, menselijke regie", text: "FONK helpt ordenen en schrijven, maar keuzes blijven bij mensen en bij de praktijk." },
-  { icon: Network, title: "Samen leren in Friesland", text: "Bewaar lessen, voorbeelden en bewezen aanpakken zodat organisaties van elkaar leren." },
+  { icon: Network, title: "Samen leren in Friesland", text: "Bewaar lessen, voorbeelden en geteste aanpakken zodat organisaties van elkaar leren." },
   { icon: MessagesSquare, title: "Vragen en draagvlak", text: "Maak zorgen bespreekbaar voordat een verandering vastloopt in de dagelijkse zorg." },
 ];
 

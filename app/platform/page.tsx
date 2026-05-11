@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { kwadrantAccounts, kwadrantMatches, kwadrantProjects, kwadrantSignals, superAdminAccount } from "@/lib/fonk-data";
 import {
+  ArrowRight,
   AlertTriangle,
   BadgeCheck,
   CheckCircle2,
@@ -23,6 +25,10 @@ const delayedProjects = kwadrantProjects.filter((project) => project.status === 
 const unclearScope = kwadrantProjects.filter((project) => project.governance.toLowerCase().includes("scope") || project.status === "Scope bijstellen");
 const programmeProjects = kwadrantProjects.filter((project) => project.governance.toLowerCase().includes("programma"));
 const totalCapacity = kwadrantProjects.reduce((sum, project) => sum + project.capacity, 0);
+
+function slugify(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
 
 const departmentPressure = [
   ["BIS/ICT", 84, "spraaktechnologie, ECD, privacy"],
@@ -177,11 +183,16 @@ export default function PlatformPage() {
               <SectionTitle eyebrow="Signalen & verbeteringen" title="Niet elk signaal wordt een project." />
               <div className="mt-7 grid gap-3">
                 {kwadrantSignals.map(([source, signal, label]) => (
-                  <div key={`${source}-${signal}`} className="rounded-2xl bg-cream p-4">
-                    <p className="text-sm font-black text-coral">{label}</p>
-                    <p className="mt-1 font-black text-ink">{signal}</p>
-                    <p className="mt-1 text-sm font-bold text-ink/58">{source}</p>
-                  </div>
+                  <details key={`${source}-${signal}`} className="rounded-2xl bg-cream p-4">
+                    <summary className="cursor-pointer list-none">
+                      <p className="text-sm font-black text-coral">{label}</p>
+                      <p className="mt-1 font-black text-ink">{signal}</p>
+                      <p className="mt-1 text-sm font-bold text-ink/58">{source} · klik voor detail</p>
+                    </summary>
+                    <div className="mt-4 rounded-2xl bg-white p-4 text-sm font-bold leading-6 text-ink/68">
+                      Voorbeelddata: dit signaal wordt gekoppeld aan bestaand project of proces. Vervolg: bespreken, kleine verbetering, procesaanpassing, mogelijk nieuw project of monitoren.
+                    </div>
+                  </details>
                 ))}
               </div>
             </article>
@@ -195,6 +206,9 @@ export default function PlatformPage() {
                       <span className="rounded-full bg-yellow/55 px-3 py-2 text-xs font-black text-petrol">{score}</span>
                     </div>
                     <p className="mt-2 text-sm font-bold text-ink/60">{orgs} · {learning}</p>
+                    <Link href="/samen-leren#fonk-match" className="mt-4 inline-flex rounded-full bg-petrol px-4 py-2 text-xs font-black text-cream">
+                      Bekijk match
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -214,6 +228,9 @@ export default function PlatformPage() {
                 <h3 className="mt-5 text-xl font-black text-ink">{project.name}</h3>
                 <p className="mt-2 text-sm font-bold text-ink/58">{project.lead} · {project.sponsor}</p>
                 <p className="mt-4 text-sm leading-6 text-ink/66">{project.risk}</p>
+                <Link href={`/projecten/${slugify(project.name)}`} className="mt-5 inline-flex items-center gap-2 rounded-full bg-petrol px-5 py-3 text-sm font-black text-cream">
+                  Bekijk detail <ArrowRight size={17} />
+                </Link>
                 <div className="mt-5 h-2 rounded-full bg-cream">
                   <div className="h-2 rounded-full bg-coral" style={{ width: `${project.progress}%` }} />
                 </div>
@@ -275,6 +292,9 @@ function ProjectCard({ project }: { project: (typeof kwadrantProjects)[number] }
         <MiniStat value={project.qualityImpact} label="kwaliteit" />
       </div>
       <p className="mt-5 rounded-2xl bg-cream p-4 text-sm font-bold leading-6 text-ink/70">{project.nextStep}</p>
+      <Link href={`/projecten/${slugify(project.name)}`} className="mt-5 inline-flex items-center gap-2 rounded-full bg-petrol px-5 py-3 text-sm font-black text-cream">
+        Bekijk projectdetail <ArrowRight size={17} />
+      </Link>
     </article>
   );
 }

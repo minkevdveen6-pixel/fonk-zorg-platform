@@ -25,11 +25,22 @@ export const metadata: Metadata = {
 };
 
 const handoutCards = [
-  ["Handout downloaden", "Een korte uitleg om intern te delen met projectleiders, MT of bestuur.", Download],
+  ["Handout downloaden", "PDF wordt voorbereid. De inhoud staat hieronder alvast zichtbaar.", Download],
   ["Kennismaking", "Vraag een gesprek aan en bekijk samen wat FONK kan betekenen.", Sparkles],
   ["Bekijk praktijkvoorbeeld", "Zie hoe een idee vanaf de werkvloer een kleine verbetering wordt.", FileText],
-  ["Bekijk projectresultaat", "Voorbeelden van tijdwinst, kwaliteit, draagvlak en leerpunten.", BadgeCheck],
-  ["Ervaringen uit de praktijk", "Professionele placeholders voor reviews van zorgorganisaties.", MessageCircle],
+  ["Bekijk projectresultaat", "Voorbeelddata voor tijdwinst, kwaliteit, draagvlak en leerpunten.", BadgeCheck],
+  ["Ervaringen uit de praktijk", "Voorbeeldreviews voor de pilotfase, niet als klantclaim.", MessageCircle],
+];
+
+const handoutDocs = [
+  ["FONK introductie", "Korte uitleg over wat FONK is, waarom het nodig is en hoe het bestaande processen versterkt.", "MT, directie, projectleiders", "introductie"],
+  ["FONK voor zorgmedewerkers", "Hoe medewerkers ideeën, knelpunten en vragen kunnen delen zonder projecttaal.", "Zorgmedewerkers en teams", "medewerkers"],
+  ["FONK voor projectleiders", "Hoe intake, afdelingen, besluiten, risico’s en impact zichtbaar worden.", "Projectleiders en programmamanagers", "projectleiders"],
+  ["FONK voor bestuur en RvB", "Hoe portfolio, capaciteit, risico en prioriteit op hoofdlijnen zichtbaar worden.", "MT, directie en RvB", "bestuur"],
+  ["FONK portfolio-overzicht", "Voorbeeld van topprioriteiten, lopende projecten, parkeerstand en projectrisico’s.", "Projectbureau en bestuur", "portfolio"],
+  ["FONK Match uitleg", "Hoe organisaties professioneel kunnen matchen op thema, leerpunt en projectroute.", "Projectleiders en regionale netwerken", "match"],
+  ["FONK privacy & veiligheid", "Rolgebaseerde toegang, minimale gegevens en veilige ondersteuning binnen de organisatie.", "Privacy, FG, ICT/BIS en bestuur", "privacy"],
+  ["FONK pilotaanpak", "Een realistische route om klein te starten, te testen, te leren en bij te sturen.", "Zorgorganisaties", "pilot"],
 ];
 
 const roleInfo = [
@@ -87,6 +98,32 @@ export default function HandoutPage() {
                 <Icon className="text-coral" aria-hidden="true" />
                 <h2 className="mt-5 text-xl font-black text-ink">{title as string}</h2>
                 <p className="mt-3 text-sm leading-6 text-ink/66">{text as string}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="voorbeelden" className="container-page py-12">
+          <p className="spark-mark text-sm font-black uppercase tracking-[0.12em] text-petrol">Handouts</p>
+          <h2 className="mt-3 max-w-3xl text-4xl font-black leading-tight text-ink">Voorbeeldinhoud om intern te delen.</h2>
+          <p className="mt-5 max-w-2xl leading-7 text-ink/68">
+            PDF wordt voorbereid — inhoud is hieronder alvast zichtbaar. De knoppen tonen bewust wat nu beschikbaar is en wat nog wordt gemaakt.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {handoutDocs.map(([title, text, audience, id]) => (
+              <article id={id} key={title} className="rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm">
+                <span className="rounded-full bg-lilac/45 px-3 py-2 text-xs font-black text-petrol">Voorbeeldhandout</span>
+                <h3 className="mt-5 text-2xl font-black text-ink">{title}</h3>
+                <p className="mt-3 leading-7 text-ink/68">{text}</p>
+                <p className="mt-3 text-sm font-black text-coral">Doelgroep: {audience}</p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <a href={`#${id}`} className="rounded-full bg-petrol px-5 py-3 text-sm font-black text-cream">
+                    Bekijk voorbeeld
+                  </a>
+                  <span className="rounded-full border border-ink/12 bg-cream px-5 py-3 text-sm font-black text-ink/60">
+                    Download PDF: in voorbereiding
+                  </span>
+                </div>
               </article>
             ))}
           </div>
@@ -169,6 +206,7 @@ export default function HandoutPage() {
               {reviews.map(([role, quote]) => (
                 <figure key={role} className="rounded-[1.75rem] bg-cream p-5 shadow-sm">
                   <Star className="text-coral" size={20} aria-hidden="true" />
+                  <p className="mt-3 text-xs font-black uppercase tracking-[0.12em] text-coral">Voorbeeldreview voor pilotfase</p>
                   <blockquote className="mt-4 text-sm font-bold leading-6 text-ink/74">“{quote}”</blockquote>
                   <figcaption className="mt-5 text-sm font-black text-petrol">{role}</figcaption>
                 </figure>

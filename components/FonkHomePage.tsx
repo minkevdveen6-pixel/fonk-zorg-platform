@@ -331,6 +331,25 @@ export function FonkHomePage() {
         </div>
       </section>
 
+      <section className="bg-cream py-12">
+        <div className="container-page grid gap-4 md:grid-cols-2">
+          <article className="rounded-[1.5rem] bg-white p-6 shadow-sm">
+            <p className="text-sm font-black uppercase tracking-[0.12em] text-coral">Publieke website</p>
+            <h2 className="mt-3 text-2xl font-black text-ink">Voor uitleg, vertrouwen en kennismaking.</h2>
+            <p className="mt-3 leading-7 text-ink/68">
+              Hier lees je wat FONK is, voor wie het is, waarom het nodig is en hoe je een kennismaking aanvraagt.
+            </p>
+          </article>
+          <article className="rounded-[1.5rem] bg-petrol p-6 text-cream shadow-sm">
+            <p className="text-sm font-black uppercase tracking-[0.12em] text-yellow">Na inloggen</p>
+            <h2 className="mt-3 text-2xl font-black">Iedere rol ziet wat relevant is.</h2>
+            <p className="mt-3 leading-7 text-cream/74">
+              In de FONK-omgeving zie je dashboards, projecten, ideeën, signalen, FONK Match, handouts en gebruikersrollen.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section className="bg-nude py-24">
         <div className="container-page">
           <SectionIntro
