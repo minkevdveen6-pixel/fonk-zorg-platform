@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { LucideIcon } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { kwadrantMatches, kwadrantProjects, kwadrantSignals, kwadrantUser } from "@/lib/fonk-data";
+import { kwadrantAccounts, kwadrantMatches, kwadrantProjects, kwadrantSignals, superAdminAccount } from "@/lib/fonk-data";
 import {
   AlertTriangle,
   BadgeCheck,
@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Kwadrant | FONK",
+  title: "Kwadrant",
   description:
     "Programmamanageromgeving van Kwadrant binnen FONK: portfolio, projecten, signalen, capaciteit, verbindingen en regionale samenwerking.",
 };
@@ -54,8 +54,8 @@ export default function PlatformPage() {
                 Overzicht van jouw organisatie: projecten, verbeteringen en organisatiebrede verandering komen samen in één route.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                <Metric value={kwadrantUser.role} label="rol" />
-                <Metric value={kwadrantUser.access} label="toegang" />
+                <Metric value="Kwadrant" label="organisatie" />
+                <Metric value="Rolgericht" label="toegang" />
               </div>
             </article>
 
@@ -97,6 +97,26 @@ export default function PlatformPage() {
             <SignalCard icon={Clock3} title="Vertraging / scope" text={`${delayedProjects.length} projecten vragen keuze op scope, capaciteit of besluitvorming.`} />
             <SignalCard icon={Route} title="Onduidelijke scope" text={`${unclearScope.length} projecten hebben aanscherping nodig voor intake of decharge.`} />
             <SignalCard icon={BadgeCheck} title="Borging" text="PDCA, proceseigenaren en beheerrollen blijven zichtbaar na livegang." />
+          </div>
+        </section>
+
+        <section id="gebruikers" className="container-page scroll-mt-28 py-12">
+          <SectionTitle eyebrow="Gebruikers & rollen" title="Iedereen ziet wat past bij zijn of haar rol." />
+          <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {kwadrantAccounts.map((account) => (
+              <article key={account.username} className="rounded-[1.5rem] border border-ink/10 bg-white p-5 shadow-sm">
+                <span className="rounded-full bg-mist px-3 py-2 text-xs font-black text-petrol">{account.organization}</span>
+                <h3 className="mt-5 text-xl font-black text-ink">{account.name}</h3>
+                <p className="mt-2 text-sm font-black text-coral">{account.role}</p>
+                <p className="mt-3 text-sm leading-6 text-ink/66">{account.access}</p>
+              </article>
+            ))}
+            <article className="rounded-[1.5rem] bg-petrol p-5 text-cream shadow-soft">
+              <span className="rounded-full bg-yellow/60 px-3 py-2 text-xs font-black text-petrol">Super admin</span>
+              <h3 className="mt-5 text-xl font-black">{superAdminAccount.name}</h3>
+              <p className="mt-2 text-sm font-black text-yellow">{superAdminAccount.role}</p>
+              <p className="mt-3 text-sm leading-6 text-cream/72">{superAdminAccount.access}</p>
+            </article>
           </div>
         </section>
 

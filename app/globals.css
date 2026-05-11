@@ -39,6 +39,18 @@ body {
   color: #2b211f;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+li,
+a,
+button,
+span {
+  overflow-wrap: anywhere;
+}
+
 ::selection {
   background: #b7d957;
   color: #102a2b;

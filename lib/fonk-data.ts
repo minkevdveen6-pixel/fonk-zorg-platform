@@ -540,6 +540,7 @@ export const kwadrantAccounts = [
     organization: "Kwadrant",
     username: "ingrid.breuker@kwadrant.fonk",
     password: "Kwadrant-FONK-01!",
+    access: "Volledige toegang tot portfolio, projecten, dashboards, signalen, FONK Match, regio en organisatieoverzicht.",
   },
   {
     name: "Jonieke Burema",
@@ -547,6 +548,7 @@ export const kwadrantAccounts = [
     organization: "Kwadrant",
     username: "jonieke.burema@kwadrant.fonk",
     password: "Kwadrant-FONK-02!",
+    access: "Toegang tot projecten, intake, impact, medewerkersideeën, signalen, FONK Match en regionale samenwerking.",
   },
   {
     name: "Brigitte Boot",
@@ -554,6 +556,7 @@ export const kwadrantAccounts = [
     organization: "Kwadrant",
     username: "brigitte.boot@kwadrant.fonk",
     password: "Kwadrant-FONK-03!",
+    access: "Toegang tot dashboards, kwaliteitsimpact, borging, signalen, verbeteringen, projecten en portfolio-overzicht.",
   },
   {
     name: "Nely van der Sluis Kooistra",
@@ -561,6 +564,7 @@ export const kwadrantAccounts = [
     organization: "Kwadrant",
     username: "nely.vandersluis@kwadrant.fonk",
     password: "Kwadrant-FONK-04!",
+    access: "Toegang tot teamprojecten, medewerkersideeën, signalen, verbeteringen, projectimpact en organisatieoverzicht.",
   },
   {
     name: "Barbara Lengkeek",
@@ -568,6 +572,7 @@ export const kwadrantAccounts = [
     organization: "Kwadrant",
     username: "barbara.lengkeek@kwadrant.fonk",
     password: "Kwadrant-FONK-05!",
+    access: "Toegang tot projecten, FONK Match, regionale samenwerking, projectbibliotheek, signalen en impactoverzichten.",
   },
 ];
 
@@ -577,6 +582,8 @@ export const superAdminAccount = {
   organization: "FONK",
   username: "minke@fonk.platform",
   password: "FONK-Owner-01!",
+  access:
+    "Toegang tot Kwadrant, toekomstige organisaties, alle meldingen, dashboards, platformbeheer, FONK inbox, gebruikersbeheer, benchmarkinformatie en organisatieoverzichten.",
 };
 
 export const organizationOverview = [

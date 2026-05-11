@@ -1,8 +1,11 @@
 "use client";
 
 import { Send } from "lucide-react";
+import { useState } from "react";
 
 export function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+
   return (
     <section className="container-page py-20">
       <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
@@ -22,13 +25,16 @@ export function ContactForm() {
 
         <form
           className="grid gap-5 rounded-[2rem] border border-ink/10 bg-white/80 p-6 shadow-soft md:p-8"
-          onSubmit={(event) => event.preventDefault()}
+          onSubmit={(event) => {
+            event.preventDefault();
+            setSubmitted(true);
+          }}
         >
           <div className="grid gap-5 md:grid-cols-2">
-            <Field label="Organisatie" name="organisatie" />
-            <Field label="Naam contactpersoon" name="naam" />
-            <Field label="Functie" name="functie" />
-            <Field label="E-mail" name="email" type="email" />
+            <Field label="Organisatie" name="organisatie" placeholder="Naam van de organisatie" required />
+            <Field label="Naam contactpersoon" name="naam" placeholder="Voor- en achternaam" required />
+            <Field label="Functie" name="functie" placeholder="Bijvoorbeeld projectleider of manager" />
+            <Field label="E-mail" name="email" type="email" placeholder="naam@organisatie.nl" required />
           </div>
           <label className="grid gap-2">
             <span className="text-sm font-bold text-ink">Aantal medewerkers</span>
@@ -57,19 +63,38 @@ export function ContactForm() {
           >
             Vraag een kennismaking aan <Send size={18} aria-hidden="true" />
           </button>
+          {submitted && (
+            <p className="rounded-2xl bg-mist p-4 text-sm font-bold leading-6 text-petrol" role="status">
+              Dank je. In deze voorbeeldomgeving is het formulier niet gekoppeld aan e-mail. Gebruik deze velden om de aanvraagflow te bekijken.
+            </p>
+          )}
         </form>
       </div>
     </section>
   );
 }
 
-function Field({ label, name, type = "text" }: { label: string; name: string; type?: string }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  placeholder,
+  required = false,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  placeholder?: string;
+  required?: boolean;
+}) {
   return (
     <label className="grid gap-2">
       <span className="text-sm font-bold text-ink">{label}</span>
       <input
         name={name}
         type={type}
+        placeholder={placeholder}
+        required={required}
         className="focus-ring rounded-2xl border border-ink/12 bg-cream px-4 py-3 text-ink"
       />
     </label>
