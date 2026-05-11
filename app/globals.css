@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #fbf8f1;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: #fbf8f1;
+  color: #2b211f;
+}
+
+::selection {
+  background: #b7d957;
+  color: #102a2b;
+}
+
+.container-page {
+  width: min(1160px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.soft-grid {
+  background-image:
+    linear-gradient(rgba(16, 42, 43, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 42, 43, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.fonk-aurora {
+  background: linear-gradient(135deg, rgba(247, 178, 139, 0.16), rgba(251, 248, 241, 0) 62%);
+}
+
+.spark-mark {
+  position: relative;
+}
+
+.spark-mark::before {
+  content: "";
+  display: inline-block;
+  width: 0.62rem;
+  height: 0.62rem;
+  margin-right: 0.45rem;
+  border-radius: 999px;
+  background: #f1725b;
+  box-shadow: 0 0 0 0.34rem rgba(241, 114, 91, 0.12);
+  vertical-align: 0.05rem;
+}
+
+@keyframes float-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #f1725b;
+  outline-offset: 4px;
+}

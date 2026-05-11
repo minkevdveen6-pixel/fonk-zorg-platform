@@ -1,0 +1,78 @@
+"use client";
+
+import { useState } from "react";
+import { Lightbulb, Plus } from "lucide-react";
+import { ideas } from "@/lib/fonk-data";
+
+const statuses = ["Nieuw idee", "In beoordeling", "Omzetten naar project", "Parkeren", "Afgewezen met toelichting", "In uitvoering", "Afgerond"];
+
+export function IdeasHub() {
+  const [submitted, setSubmitted] = useState(false);
+
+  return (
+    <section className="container-page py-16 text-ink">
+      <div className="grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+        <form
+          className="rounded-[2rem] border border-ink/10 bg-white/85 p-5 shadow-soft"
+          onSubmit={(event) => {
+            event.preventDefault();
+            setSubmitted(true);
+          }}
+        >
+          <div className="flex items-center gap-3">
+            <Lightbulb className="text-lime" aria-hidden="true" />
+            <h2 className="text-2xl font-black">Idee of knelpunt indienen</h2>
+          </div>
+          <div className="mt-6 grid gap-4">
+            {["Idee", "Knelpunt uit de praktijk", "Voorgestelde oplossing", "Team/locatie", "Contactpersoon"].map((label) => (
+              <label key={label} className="grid gap-2">
+                <span className="text-sm font-bold text-ink/70">{label}</span>
+                <input className="focus-ring rounded-2xl border border-ink/10 bg-sand/60 px-4 py-3 text-ink" />
+              </label>
+            ))}
+          </div>
+          <button className="focus-ring mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-pine px-5 py-4 font-black text-cream">
+            Verstuur naar projectleiders <Plus size={18} />
+          </button>
+          {submitted ? (
+            <p className="mt-4 rounded-2xl bg-lime/16 p-4 font-bold text-lime">
+              Je idee is zichtbaar voor projectleiders als Nieuw idee.
+            </p>
+          ) : null}
+        </form>
+
+        <div className="rounded-[2rem] border border-ink/10 bg-white/80 p-5 shadow-soft">
+          <p className="text-sm font-black uppercase tracking-[0.12em] text-pine">Ideeën uit de praktijk</p>
+          <h2 className="mt-2 text-3xl font-black">Van medewerkerssignaal naar duidelijke vervolgstap</h2>
+          <div className="mt-6 grid gap-4">
+            {ideas.map((idea) => (
+              <article key={idea.idea} className="rounded-3xl border border-ink/10 bg-white/85 p-4">
+                <div className="flex flex-col justify-between gap-3 md:flex-row">
+                  <div>
+                    <p className="text-sm font-bold text-lime">{idea.month} · {idea.team}</p>
+                    <h3 className="mt-2 text-xl font-black">{idea.idea}</h3>
+                    <p className="mt-2 text-sm text-ink/62">Medewerker: {idea.employee} · Contact: {idea.contact}</p>
+                  </div>
+                  <span className="h-fit rounded-full bg-coral px-3 py-2 text-xs font-black text-cream">{idea.status}</span>
+                </div>
+                <p className="mt-4 leading-7 text-ink/70">{idea.review}</p>
+                <div className="mt-4 grid gap-3 text-sm font-bold md:grid-cols-3">
+                  <span className="rounded-2xl bg-white/85 p-3">Project: {idea.linkedProject}</span>
+                  <span className="rounded-2xl bg-white/85 p-3">Impact {idea.impact}</span>
+                  <span className="rounded-2xl bg-white/85 p-3">Haalbaarheid {idea.feasibility}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {statuses.map((status) => (
+              <span key={status} className="rounded-full border border-ink/10 bg-white/85 px-3 py-2 text-xs font-bold text-ink/70">
+                {status}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
