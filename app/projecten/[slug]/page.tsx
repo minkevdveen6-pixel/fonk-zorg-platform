@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, Clock3, UsersRound } from "lucide-react";
@@ -116,7 +117,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
   );
 }
 
-function Metric({ icon: Icon, label, value }: { icon: typeof Clock3; label: string; value: string }) {
+function Metric({ icon: Icon, label, value }: { icon: LucideIcon; label: string; value: string }) {
   return (
     <article className="rounded-[1.5rem] bg-white p-5 shadow-sm">
       <Icon className="text-coral" aria-hidden="true" />

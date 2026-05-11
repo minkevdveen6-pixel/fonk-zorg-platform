@@ -21,9 +21,10 @@ export function ProjectLeadCockpit() {
             {actions.map((action) => {
               const Icon = action.icon;
               return (
-                <button key={action.label} className="focus-ring inline-flex items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-sand/60 px-4 py-4 font-black text-ink">
+                <div key={action.label} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-sand/60 px-4 py-4 font-black text-ink">
                   <Icon size={18} aria-hidden="true" /> {action.label}
-                </button>
+                  <span className="rounded-full bg-white/80 px-2 py-1 text-[0.68rem] font-black text-ink/54">in voorbereiding</span>
+                </div>
               );
             })}
           </div>

@@ -3,11 +3,11 @@ import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
+import { fonkHandouts } from "@/lib/fonk-data";
 import {
   BadgeCheck,
   Download,
   FileText,
-  Handshake,
   HelpCircle,
   MessageCircle,
   RefreshCw,
@@ -30,17 +30,6 @@ const handoutCards = [
   ["Bekijk praktijkvoorbeeld", "Zie hoe een idee vanaf de werkvloer een kleine verbetering wordt.", FileText],
   ["Bekijk projectresultaat", "Voorbeelddata voor tijdwinst, kwaliteit, draagvlak en leerpunten.", BadgeCheck],
   ["Ervaringen uit de praktijk", "Voorbeeldreviews voor de pilotfase, niet als klantclaim.", MessageCircle],
-];
-
-const handoutDocs = [
-  ["FONK introductie", "Korte uitleg over wat FONK is, waarom het nodig is en hoe het bestaande processen versterkt.", "MT, directie, projectleiders", "introductie"],
-  ["FONK voor zorgmedewerkers", "Hoe medewerkers ideeën, knelpunten en vragen kunnen delen zonder projecttaal.", "Zorgmedewerkers en teams", "medewerkers"],
-  ["FONK voor projectleiders", "Hoe intake, afdelingen, besluiten, risico’s en impact zichtbaar worden.", "Projectleiders en programmamanagers", "projectleiders"],
-  ["FONK voor bestuur en RvB", "Hoe portfolio, capaciteit, risico en prioriteit op hoofdlijnen zichtbaar worden.", "MT, directie en RvB", "bestuur"],
-  ["FONK portfolio-overzicht", "Voorbeeld van topprioriteiten, lopende projecten, parkeerstand en projectrisico’s.", "Projectbureau en bestuur", "portfolio"],
-  ["FONK Match uitleg", "Hoe organisaties professioneel kunnen matchen op thema, leerpunt en projectroute.", "Projectleiders en regionale netwerken", "match"],
-  ["FONK privacy & veiligheid", "Rolgebaseerde toegang, minimale gegevens en veilige ondersteuning binnen de organisatie.", "Privacy, FG, ICT/BIS en bestuur", "privacy"],
-  ["FONK pilotaanpak", "Een realistische route om klein te starten, te testen, te leren en bij te sturen.", "Zorgorganisaties", "pilot"],
 ];
 
 const roleInfo = [
@@ -110,18 +99,18 @@ export default function HandoutPage() {
             PDF wordt voorbereid — inhoud is hieronder alvast zichtbaar. De knoppen tonen bewust wat nu beschikbaar is en wat nog wordt gemaakt.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {handoutDocs.map(([title, text, audience, id]) => (
-              <article id={id} key={title} className="rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm">
+            {fonkHandouts.map((handout) => (
+              <article id={handout.slug} key={handout.slug} className="rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm">
                 <span className="rounded-full bg-lilac/45 px-3 py-2 text-xs font-black text-petrol">Voorbeeldhandout</span>
-                <h3 className="mt-5 text-2xl font-black text-ink">{title}</h3>
-                <p className="mt-3 leading-7 text-ink/68">{text}</p>
-                <p className="mt-3 text-sm font-black text-coral">Doelgroep: {audience}</p>
+                <h3 className="mt-5 text-2xl font-black text-ink">{handout.title}</h3>
+                <p className="mt-3 leading-7 text-ink/68">{handout.goal}</p>
+                <p className="mt-3 text-sm font-black text-coral">Doelgroep: {handout.audience}</p>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <a href={`#${id}`} className="rounded-full bg-petrol px-5 py-3 text-sm font-black text-cream">
+                  <Link href={`/handout/${handout.slug}`} className="rounded-full bg-petrol px-5 py-3 text-sm font-black text-cream">
                     Bekijk voorbeeld
-                  </a>
+                  </Link>
                   <span className="rounded-full border border-ink/12 bg-cream px-5 py-3 text-sm font-black text-ink/60">
-                    Download PDF: in voorbereiding
+                    Download wordt voorbereid
                   </span>
                 </div>
               </article>

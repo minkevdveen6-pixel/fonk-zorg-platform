@@ -15,6 +15,7 @@ const colorByStatus: Record<FonkProject["status"], string> = {
 
 export function ProjectMap() {
   const [active, setActive] = useState<FonkProject>(fonkProjects[0]);
+  const [questionSent, setQuestionSent] = useState(false);
 
   return (
     <section className="container-page py-16 text-ink">
@@ -69,9 +70,18 @@ export function ProjectMap() {
             <span className="text-sm font-bold text-ink/70">Stel een vraag over dit project</span>
             <textarea className="focus-ring min-h-24 rounded-2xl border border-ink/10 bg-white/85 p-4 text-ink" placeholder="Waar loop je in de praktijk tegenaan?" />
           </label>
-          <button className="focus-ring mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-pine px-5 py-4 font-black text-cream">
+          <button
+            type="button"
+            onClick={() => setQuestionSent(true)}
+            className="focus-ring mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-pine px-5 py-4 font-black text-cream"
+          >
             Vraag stellen <MessageCircle size={18} />
           </button>
+          {questionSent ? (
+            <p className="mt-4 rounded-2xl bg-mist p-4 text-sm font-bold leading-6 text-petrol">
+              Vraag opgeslagen als voorbeeldmelding. In de pilot wordt dit gekoppeld aan projectleider en projectlog.
+            </p>
+          ) : null}
         </aside>
       </div>
     </section>

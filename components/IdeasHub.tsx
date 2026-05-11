@@ -2,9 +2,16 @@
 
 import { useState } from "react";
 import { Lightbulb, Plus } from "lucide-react";
-import { ideas } from "@/lib/fonk-data";
+import { ideas, topIdeas } from "@/lib/fonk-data";
 
 const statuses = ["Nieuw idee", "In beoordeling", "Omzetten naar project", "Parkeren", "Afgewezen met toelichting", "In uitvoering", "Afgerond"];
+const ideaFields = [
+  ["Idee", "Bijvoorbeeld: overdracht korter maken"],
+  ["Knelpunt uit de praktijk", "Waar loop je tegenaan?"],
+  ["Voorgestelde oplossing", "Wat zou helpen?"],
+  ["Team/locatie", "Bijvoorbeeld: Zorg Thuis Noord"],
+  ["Contactpersoon", "Naam of teamcontact"],
+];
 
 export function IdeasHub() {
   const [submitted, setSubmitted] = useState(false);
@@ -25,14 +32,14 @@ export function IdeasHub() {
             <h2 className="text-2xl font-black">Idee of knelpunt indienen</h2>
           </div>
           <div className="mt-6 grid gap-4">
-            {["Idee", "Knelpunt uit de praktijk", "Voorgestelde oplossing", "Team/locatie", "Contactpersoon"].map((label) => (
+            {ideaFields.map(([label, placeholder]) => (
               <label key={label} className="grid gap-2">
                 <span className="text-sm font-bold text-ink/70">{label}</span>
-                <input className="focus-ring rounded-2xl border border-ink/10 bg-sand/60 px-4 py-3 text-ink" />
+                <input placeholder={placeholder} className="focus-ring rounded-2xl border border-ink/10 bg-sand/60 px-4 py-3 text-ink placeholder:text-ink/35" />
               </label>
             ))}
           </div>
-          <button className="focus-ring mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-pine px-5 py-4 font-black text-cream">
+          <button type="submit" className="focus-ring mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-pine px-5 py-4 font-black text-cream">
             Verstuur naar projectleiders <Plus size={18} />
           </button>
           {submitted ? (
@@ -43,8 +50,33 @@ export function IdeasHub() {
         </form>
 
         <div className="rounded-[2rem] border border-ink/10 bg-white/80 p-5 shadow-soft">
+          <p className="rounded-full bg-lilac/35 px-4 py-2 text-sm font-black text-petrol">Beschikbaar binnen de FONK-omgeving</p>
           <p className="text-sm font-black uppercase tracking-[0.12em] text-pine">Ideeën uit de praktijk</p>
           <h2 className="mt-2 text-3xl font-black">Van medewerkerssignaal naar duidelijke vervolgstap</h2>
+          <div className="mt-6 rounded-[1.5rem] bg-mist p-5">
+            <h3 className="text-2xl font-black text-ink">Top Ideeën & Verbeteringen</h3>
+            <p className="mt-2 text-sm font-bold leading-6 text-ink/62">
+              Iedereen in de organisatie kan ideeën bekijken, reacties volgen en inspiratie ophalen. Rechten verschillen per rol.
+            </p>
+            <div className="mt-5 grid gap-3 md:grid-cols-2">
+              {topIdeas.map((idea) => (
+                <article key={idea.title} className="rounded-2xl bg-white p-4 shadow-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="rounded-full bg-yellow/60 px-3 py-2 text-xs font-black text-petrol">{idea.label}</span>
+                    <span className="text-xs font-black text-ink/52">{idea.likes} likes · {idea.comments} reacties</span>
+                  </div>
+                  <h4 className="mt-4 text-lg font-black text-ink">{idea.title}</h4>
+                  <p className="mt-2 text-sm font-bold text-ink/60">{idea.submitter} · {idea.team}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {[idea.theme, idea.department, idea.status, idea.impact].map((label) => (
+                      <span key={label} className="rounded-full bg-cream px-3 py-2 text-xs font-black text-petrol">{label}</span>
+                    ))}
+                  </div>
+                  <p className="mt-4 rounded-2xl bg-cream p-3 text-sm font-bold leading-6 text-ink/66">Vervolg: {idea.nextStep}</p>
+                </article>
+              ))}
+            </div>
+          </div>
           <div className="mt-6 grid gap-4">
             {ideas.map((idea) => (
               <article key={idea.idea} className="rounded-3xl border border-ink/10 bg-white/85 p-4">

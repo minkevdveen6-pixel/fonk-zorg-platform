@@ -3,13 +3,14 @@ import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { kwadrantAccounts, kwadrantMatches, kwadrantProjects, kwadrantSignals, superAdminAccount } from "@/lib/fonk-data";
+import { afterProjectSteps, kwadrantAccounts, kwadrantMatches, kwadrantProjects, kwadrantSignals, roleAccess, superAdminAccount, topIdeas } from "@/lib/fonk-data";
 import {
   ArrowRight,
   AlertTriangle,
   BadgeCheck,
   CheckCircle2,
   Clock3,
+  Lightbulb,
   Route,
 } from "lucide-react";
 
@@ -44,6 +45,17 @@ const onboarding = [
   ["Voor bestuur", "Focus op 3 prioriteiten en risico’s die besluit vragen."],
   ["Voor medewerkers", "Signalen uit de praktijk verdwijnen niet in mailboxen."],
   ["Voor regio", "Projectmatches maken samenwerking sneller en concreter."],
+];
+
+const platformModules = [
+  { title: "Projecten", text: "Dashboard, status en details.", href: "/projectdashboard" },
+  { title: "Ideeën", text: "Top ideeën, reacties en opvolging.", href: "/ideeenhub" },
+  { title: "Handouts", text: "Voorbeeldinhoud per rol.", href: "/handout" },
+  { title: "Impact", text: "Tijdswinst, kwaliteit en opbrengst.", href: "#portfolio-overzicht" },
+  { title: "Signalen", text: "Klikbare meldingen en opvolging.", href: "#signalen" },
+  { title: "Borging", text: "Monitoring na livegang.", href: "#borging" },
+  { title: "FONK Match", text: "Regionale matches en leerpunten.", href: "/samen-leren#fonk-match" },
+  { title: "Regelingen", text: "Ondersteunend bij projectfinanciering.", href: "#regelingen", status: "pilotfase" },
 ];
 
 export default function PlatformPage() {
@@ -91,6 +103,23 @@ export default function PlatformPage() {
           </div>
         </section>
 
+        <section id="modules" className="container-page scroll-mt-28 py-10">
+          <SectionTitle eyebrow="Na inloggen" title="Alle beloofde onderdelen staan hier op één route." />
+          <div className="mt-7 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+            {platformModules.map((module) => (
+              <Link key={module.title} href={module.href} className="rounded-[1.25rem] bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft">
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="text-lg font-black text-ink">{module.title}</p>
+                  {module.status ? (
+                    <span className="rounded-full bg-yellow/55 px-2.5 py-1 text-[0.68rem] font-black text-petrol">{module.status}</span>
+                  ) : null}
+                </div>
+                <p className="mt-2 text-sm font-bold leading-6 text-ink/60">{module.text}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section id="portfolio-overzicht" className="container-page scroll-mt-28 py-12">
           <SectionTitle eyebrow="Portfolio" title="Focus houden zonder ruis." />
           <div className="mt-7 grid gap-4 lg:grid-cols-3">
@@ -123,6 +152,41 @@ export default function PlatformPage() {
               <p className="mt-2 text-sm font-black text-yellow">{superAdminAccount.role}</p>
               <p className="mt-3 text-sm leading-6 text-cream/72">{superAdminAccount.access}</p>
             </article>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {roleAccess.map((item) => (
+              <article key={item.role} className="rounded-[1.5rem] bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-black text-ink">{item.role}</h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {item.access.map((access) => (
+                    <span key={access} className="rounded-full bg-mist px-3 py-2 text-xs font-black text-petrol">{access}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="top-ideeen" className="bg-white py-16 scroll-mt-28">
+          <div className="container-page">
+            <SectionTitle eyebrow="Top Ideeën & Verbeteringen" title="Wat speelt er op de werkvloer?" />
+            <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {topIdeas.map((idea) => (
+                <article key={idea.title} className="rounded-[1.5rem] border border-ink/10 bg-cream p-5 shadow-sm">
+                  <Lightbulb className="text-coral" aria-hidden="true" />
+                  <h3 className="mt-5 text-lg font-black text-ink">{idea.title}</h3>
+                  <p className="mt-2 text-sm font-bold text-ink/58">{idea.submitter} · {idea.team}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="rounded-full bg-yellow/60 px-3 py-2 text-xs font-black text-petrol">{idea.label}</span>
+                    <span className="rounded-full bg-white px-3 py-2 text-xs font-black text-petrol">{idea.status}</span>
+                  </div>
+                  <p className="mt-4 text-sm font-bold text-ink/62">{idea.likes} likes · {idea.comments} reacties</p>
+                  <Link href="/ideeenhub" className="mt-5 inline-flex rounded-full bg-petrol px-4 py-2 text-xs font-black text-cream">
+                    Bekijk in Ideeënhub
+                  </Link>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -214,6 +278,29 @@ export default function PlatformPage() {
               </div>
             </article>
           </div>
+        </section>
+
+        <section id="borging" className="container-page scroll-mt-28 py-16">
+          <SectionTitle eyebrow="Na afronding van een project" title="Een project stopt niet na livegang." />
+          <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {afterProjectSteps.map(([title, text]) => (
+              <article key={title} className="rounded-[1.5rem] border border-ink/10 bg-white p-5 shadow-sm">
+                <h3 className="text-xl font-black text-ink">{title}</h3>
+                <p className="mt-3 text-sm font-bold leading-6 text-ink/66">{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="regelingen" className="container-page scroll-mt-28 py-10">
+          <article className="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-soft md:p-7">
+            <span className="rounded-full bg-yellow/55 px-3 py-2 text-xs font-black text-petrol">Deze module wordt voorbereid voor pilotfase</span>
+            <h2 className="mt-5 text-3xl font-black text-ink">Regelingen ondersteunen het project, ze sturen het niet.</h2>
+            <p className="mt-4 max-w-3xl text-sm font-bold leading-7 text-ink/66">
+              Binnen FONK kan later zichtbaar worden welke subsidies, regelingen of regionale programma&apos;s passen bij een projectthema.
+              Het vertrekpunt blijft altijd wat de praktijk nodig heeft.
+            </p>
+          </article>
         </section>
 
         <section id="projecten" className="container-page scroll-mt-28 py-16">
