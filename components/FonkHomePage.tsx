@@ -25,8 +25,7 @@ import {
   UsersRound,
 } from "lucide-react";
 
-const heroPhoto =
-  "https://images.pexels.com/photos/6129145/pexels-photo-6129145.jpeg?auto=compress&cs=tinysrgb&w=1200";
+const heroPhoto = "/images/fonk-hero-organization.png";
 
 const heroBlocks = [
   ["Ideeën uit de praktijk", "Medewerkers delen wat beter kan.", Lightbulb],
@@ -252,7 +251,7 @@ function SectionIntro({
 export function FonkHomePage() {
   return (
     <>
-      <section className="bg-cream">
+      <section className="bg-lilac/45">
         <div className="container-page grid min-h-[calc(100svh-5rem)] gap-12 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-20">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-2 text-sm font-black text-petrol shadow-sm">
@@ -290,35 +289,35 @@ export function FonkHomePage() {
                 className="h-[22rem] w-full object-cover object-center md:h-[31rem]"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/34 via-transparent to-transparent" aria-hidden="true" />
-              <div className="absolute left-5 top-5 grid h-11 w-11 place-items-center rounded-full bg-cream/92 text-coral shadow-soft" aria-hidden="true">
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/52 via-ink/10 to-transparent" aria-hidden="true" />
+              <div className="absolute left-5 top-5 grid h-11 w-11 place-items-center rounded-full bg-cream/94 text-coral shadow-soft" aria-hidden="true">
                 <span className="text-2xl leading-none">✦</span>
               </div>
-              <div className="absolute bottom-5 left-5 right-5 rounded-3xl bg-cream/92 p-4 shadow-soft backdrop-blur">
-                <p className="text-sm font-black text-petrol">FONK brengt ideeën, projecten, prioriteiten en mensen samen.</p>
-                <p className="mt-1 text-sm font-bold text-ink/70">Geen extra systeem naast alles. Wel één gezamenlijke route voor verandering.</p>
+              <div className="absolute bottom-5 left-5 right-5 rounded-3xl bg-ink/78 p-4 text-cream shadow-soft backdrop-blur">
+                <p className="text-sm font-black">Iedereen doet ertoe.</p>
+                <p className="mt-1 text-sm font-bold text-cream/78">Eén route voor de hele organisatie.</p>
               </div>
             </div>
           </Card>
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-violet py-16 text-cream">
         <div className="container-page">
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-5">
             {[
-              "Veranderingen komen niet meer van de grond?",
-              "Te veel losse projecten tegelijk?",
-              "Nieuwe organisatiestructuur, maar geen gezamenlijke route?",
-              "Goede ideeën verdwijnen in overleg en mailboxen?",
-              "Te veel mensen, te veel wensen en te veel geitenpaadjes?",
+              "Verandering blijft hangen?",
+              "Te veel losse projecten?",
+              "Nieuwe structuur, geen route?",
+              "Ideeën kwijt in overleg?",
+              "Te veel geitenpaadjes?",
             ].map((question) => (
-              <div key={question} className="rounded-[1.5rem] border border-ink/10 bg-cream p-5 text-lg font-black leading-7 text-ink shadow-sm">
+              <div key={question} className="rounded-[1.5rem] border border-cream/16 bg-cream/12 p-5 text-lg font-black leading-7 text-cream shadow-sm backdrop-blur">
                 {question}
               </div>
             ))}
           </div>
-          <p className="mt-8 rounded-[2rem] bg-petrol p-6 text-2xl font-black leading-tight text-cream md:text-3xl">
+          <p className="mt-8 rounded-[2rem] bg-coral p-6 text-2xl font-black leading-tight text-cream md:text-3xl">
             FONK helpt zorgorganisaties weer beweging creëren.
           </p>
         </div>

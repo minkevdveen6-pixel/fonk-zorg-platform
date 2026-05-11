@@ -4,7 +4,7 @@
 
 :root {
   color-scheme: light;
-  background: #fbf8f1;
+  background: #fff8f2;
   --font-display: var(--font-inter), ui-sans-serif, system-ui;
 }
 
@@ -33,7 +33,9 @@ html {
 
 body {
   margin: 0;
-  background: #fbf8f1;
+  background:
+    linear-gradient(180deg, rgba(216, 184, 234, 0.26), rgba(255, 248, 242, 0) 24rem),
+    #fff8f2;
   color: #2b211f;
 }
 
@@ -55,7 +57,7 @@ body {
 }
 
 .fonk-aurora {
-  background: linear-gradient(135deg, rgba(247, 178, 139, 0.16), rgba(251, 248, 241, 0) 62%);
+  background: linear-gradient(135deg, rgba(216, 184, 234, 0.42), rgba(255, 178, 135, 0.18) 54%, rgba(255, 248, 242, 0) 78%);
 }
 
 .spark-mark {
@@ -70,7 +72,7 @@ body {
   margin-right: 0.45rem;
   border-radius: 999px;
   background: #f1725b;
-  box-shadow: 0 0 0 0.34rem rgba(241, 114, 91, 0.12);
+  box-shadow: 0 0 0 0.34rem rgba(216, 184, 234, 0.34);
   vertical-align: 0.05rem;
 }
 

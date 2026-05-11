@@ -532,3 +532,62 @@ export const kwadrantMatches = [
   ["Wondzorg", "4 organisaties", "78%", "regionale werkwijze"],
   ["Spraakrapportage", "2 organisaties", "72%", "pilotresultaten delen"],
 ];
+
+export const kwadrantAccounts = [
+  {
+    name: "Ingrid Breuker Stockmann",
+    role: "Programmamanager",
+    organization: "Kwadrant",
+    username: "ingrid.breuker@kwadrant.fonk",
+    password: "Kwadrant-FONK-01!",
+  },
+  {
+    name: "Jonieke Burema",
+    role: "Projectleider zorgvernieuwing",
+    organization: "Kwadrant",
+    username: "jonieke.burema@kwadrant.fonk",
+    password: "Kwadrant-FONK-02!",
+  },
+  {
+    name: "Brigitte Boot",
+    role: "Manager kwaliteit en processen",
+    organization: "Kwadrant",
+    username: "brigitte.boot@kwadrant.fonk",
+    password: "Kwadrant-FONK-03!",
+  },
+  {
+    name: "Nely van der Sluis Kooistra",
+    role: "Teamleider Zorg Thuis",
+    organization: "Kwadrant",
+    username: "nely.vandersluis@kwadrant.fonk",
+    password: "Kwadrant-FONK-04!",
+  },
+  {
+    name: "Barbara Lengkeek",
+    role: "Projectleider regionale samenwerking",
+    organization: "Kwadrant",
+    username: "barbara.lengkeek@kwadrant.fonk",
+    password: "Kwadrant-FONK-05!",
+  },
+];
+
+export const superAdminAccount = {
+  name: "Minke van der Veen",
+  role: "Oprichtster / Platform Owner / Super Admin",
+  organization: "FONK",
+  username: "minke@fonk.platform",
+  password: "FONK-Owner-01!",
+};
+
+export const organizationOverview = [
+  ["Kwadrant", "82%", "46", "10", "5", "live"],
+  ["AWIZ Connect", "61%", "18", "4", "3", "regionaal"],
+  ["Zorggroep pilot", "34%", "9", "2", "1", "voorbereiding"],
+];
+
+export const fonkInbox = [
+  ["Kwadrant", "Vraag over scope Centrale Coördinatie en Triage", "besluit nodig"],
+  ["Kwadrant", "Nieuwe signalen rondom registratiedruk", "opvolgen"],
+  ["AWIZ Connect", "Matchvoorstel wondzorg delen met partners", "regionaal"],
+  ["Kwadrant", "Supportvraag rechten projectleider", "beheer"],
+];

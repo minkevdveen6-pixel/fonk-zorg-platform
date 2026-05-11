@@ -49,9 +49,9 @@ export default function PlatformPage() {
           <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch">
             <article className="rounded-[2rem] bg-petrol p-7 text-cream shadow-soft md:p-9">
               <p className="text-sm font-black uppercase tracking-[0.12em] text-yellow">Kwadrant is aangesloten</p>
-              <h1 className="mt-4 text-4xl font-black leading-tight md:text-6xl">Welkom terug Ingrid.</h1>
+              <h1 className="mt-4 text-4xl font-black leading-tight md:text-6xl">Welkom op FONK.</h1>
               <p className="mt-5 text-lg leading-8 text-cream/78">
-                Kwadrant werkt samen met FONK om projecten, verbeteringen en organisatiebrede verandering overzichtelijk samen te brengen.
+                Overzicht van jouw organisatie: projecten, verbeteringen en organisatiebrede verandering komen samen in één route.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 <Metric value={kwadrantUser.role} label="rol" />
