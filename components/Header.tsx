@@ -13,7 +13,6 @@ const navItems = [
   { href: "/voor-bestuur", label: "Voor bestuur" },
   { href: "/samen-leren", label: "Samen leren" },
   { href: "/handout", label: "Handout" },
-  { href: "/login", label: "Inloggen" },
 ];
 
 export function Header() {
