@@ -536,7 +536,7 @@ export const kwadrantMatches = [
 export const kwadrantAccounts = [
   {
     name: "Ingrid Breuker Stockmann",
-    role: "Programmamanager",
+    role: "Projectleider",
     organization: "Kwadrant",
     username: "ingrid.breuker@kwadrant.fonk",
     password: "Kwadrant-FONK-01!",
@@ -544,7 +544,7 @@ export const kwadrantAccounts = [
   },
   {
     name: "Jonieke Burema",
-    role: "Projectleider zorgvernieuwing",
+    role: "Projectleider",
     organization: "Kwadrant",
     username: "jonieke.burema@kwadrant.fonk",
     password: "Kwadrant-FONK-02!",
@@ -552,7 +552,7 @@ export const kwadrantAccounts = [
   },
   {
     name: "Brigitte Boot",
-    role: "Manager kwaliteit en processen",
+    role: "Projectleider",
     organization: "Kwadrant",
     username: "brigitte.boot@kwadrant.fonk",
     password: "Kwadrant-FONK-03!",
@@ -560,7 +560,7 @@ export const kwadrantAccounts = [
   },
   {
     name: "Nely van der Sluis Kooistra",
-    role: "Teamleider Zorg Thuis",
+    role: "Projectleider",
     organization: "Kwadrant",
     username: "nely.vandersluis@kwadrant.fonk",
     password: "Kwadrant-FONK-04!",
@@ -568,7 +568,7 @@ export const kwadrantAccounts = [
   },
   {
     name: "Barbara Lengkeek",
-    role: "Projectleider regionale samenwerking",
+    role: "Projectleider",
     organization: "Kwadrant",
     username: "barbara.lengkeek@kwadrant.fonk",
     password: "Kwadrant-FONK-05!",
