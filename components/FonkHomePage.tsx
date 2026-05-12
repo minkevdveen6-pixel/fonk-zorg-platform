@@ -57,10 +57,10 @@ const employeeSees = [
 const employeeCan = [
   "ideeën delen",
   "knelpunten melden",
-  "vragen stellen",
+  "resultaten doorgeven",
+  "werkmail achterlaten",
   "verbeteringen volgen",
-  "meedenken",
-  "feedback geven",
+  "voortgang ontvangen",
   "signalen toevoegen aan lopende projecten",
   "resultaten terugzien",
 ];
@@ -200,7 +200,7 @@ function Label({ children }: { children: ReactNode }) {
 function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <article
-      className={`rounded-[1.5rem] border border-ink/8 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-0.5 ${className}`}
+      className={`min-w-0 rounded-[1.5rem] border border-ink/8 bg-white p-5 shadow-soft transition duration-300 hover:-translate-y-0.5 md:p-6 ${className}`}
     >
       {children}
     </article>
@@ -209,12 +209,12 @@ function Card({ children, className = "" }: { children: ReactNode; className?: s
 
 function IconCard({ icon: Icon, title, text }: { icon: LucideIcon; title: string; text: string }) {
   return (
-    <Card>
+    <Card className="h-full">
       <span className="grid h-11 w-11 place-items-center rounded-2xl bg-coral/12 text-coral">
         <Icon size={22} aria-hidden="true" />
       </span>
       <h3 className="mt-5 text-xl font-black text-ink">{title}</h3>
-      <p className="mt-3 leading-7 text-ink/66">{text}</p>
+      <p className="mt-3 text-sm font-bold leading-6 text-ink/64">{text}</p>
     </Card>
   );
 }
@@ -332,19 +332,29 @@ export function FonkHomePage() {
       </section>
 
       <section className="bg-cream py-12">
-        <div className="container-page grid gap-4 md:grid-cols-2">
-          <article className="rounded-[1.5rem] bg-white p-6 shadow-sm">
+        <div className="container-page grid gap-4 lg:grid-cols-3">
+          <article className="flex h-full flex-col rounded-[1.5rem] bg-white p-6 shadow-sm">
             <p className="text-sm font-black uppercase tracking-[0.12em] text-coral">Publieke website</p>
             <h2 className="mt-3 text-2xl font-black text-ink">Voor uitleg, vertrouwen en kennismaking.</h2>
-            <p className="mt-3 leading-7 text-ink/68">
+            <p className="mt-3 text-sm font-bold leading-6 text-ink/64">
               Hier lees je wat FONK is, voor wie het is, waarom het nodig is en hoe je een kennismaking aanvraagt.
             </p>
           </article>
-          <article className="rounded-[1.5rem] bg-petrol p-6 text-cream shadow-sm">
+          <article className="flex h-full flex-col rounded-[1.5rem] bg-lilac/55 p-6 shadow-sm">
+            <p className="text-sm font-black uppercase tracking-[0.12em] text-petrol">Zonder login</p>
+            <h2 className="mt-3 text-2xl font-black text-ink">Medewerkers delen signalen direct.</h2>
+            <p className="mt-3 text-sm font-bold leading-6 text-ink/64">
+              Ideeën, knelpunten en resultaten kunnen via de publieke website worden doorgegeven met werkmail.
+            </p>
+            <Link href="/voor-medewerkers#medewerkersinput" className="mt-5 inline-flex w-fit rounded-full bg-petrol px-5 py-3 text-sm font-black text-cream">
+              Input doorgeven
+            </Link>
+          </article>
+          <article className="flex h-full flex-col rounded-[1.5rem] bg-petrol p-6 text-cream shadow-sm">
             <p className="text-sm font-black uppercase tracking-[0.12em] text-yellow">Na inloggen</p>
-            <h2 className="mt-3 text-2xl font-black">Iedere rol ziet wat relevant is.</h2>
-            <p className="mt-3 leading-7 text-cream/74">
-              In de FONK-omgeving zie je dashboards, projecten, ideeën, signalen, FONK Match, handouts en gebruikersrollen.
+            <h2 className="mt-3 text-2xl font-black">Sturing en opvolging voor rollen.</h2>
+            <p className="mt-3 text-sm font-bold leading-6 text-cream/72">
+              Projectleiders, programmamanagers, MT, directie, RvB en beheer loggen in voor dashboards en besluitvorming.
             </p>
           </article>
         </div>

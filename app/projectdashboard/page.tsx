@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
+import { ProjectLeadCockpit } from "@/components/ProjectLeadCockpit";
 import { kwadrantProjects } from "@/lib/fonk-data";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function ProjectDashboardPage() {
           title="Projectdashboard Kwadrant."
           body="Voorbeelddata voor pilotomgeving. Klik op een project om aanleiding, afdelingen, risico’s, signalen en volgende stap te bekijken."
         />
+        <ProjectLeadCockpit />
         <section className="container-page py-16">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {kwadrantProjects.map((project) => (

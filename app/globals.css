@@ -48,7 +48,26 @@ li,
 a,
 button,
 span {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+input,
+textarea,
+select {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
 }
 
 ::selection {
@@ -108,4 +127,8 @@ span {
 .focus-ring:focus-visible {
   outline: 2px solid #f1725b;
   outline-offset: 4px;
+}
+
+.break-anywhere {
+  overflow-wrap: anywhere;
 }

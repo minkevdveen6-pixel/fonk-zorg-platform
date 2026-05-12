@@ -99,7 +99,7 @@ function Cell({
     <div
       className={`border-t border-ink/8 px-4 py-3 text-sm ${
         strong ? "font-black text-ink" : "font-bold text-ink/66"
-      } ${accent ? "text-petrol" : ""} ${warning ? "font-black text-coral" : ""}`}
+      } ${accent || warning ? "break-anywhere" : ""} ${accent ? "text-petrol" : ""} ${warning ? "font-black text-coral" : ""}`}
     >
       <span className="lg:hidden text-xs uppercase tracking-[0.12em] text-ink/45">{label} · </span>
       {children}

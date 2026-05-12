@@ -1,5 +1,5 @@
 import { FileAudio, Mic, Send, Upload, WandSparkles } from "lucide-react";
-import { fonkProjects, ideas } from "@/lib/fonk-data";
+import { employeeSubmissions, fonkProjects, ideas } from "@/lib/fonk-data";
 
 const actions = [
   { icon: Upload, label: "Upload intakegesprek" },
@@ -21,8 +21,10 @@ export function ProjectLeadCockpit() {
             {actions.map((action) => {
               const Icon = action.icon;
               return (
-                <div key={action.label} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-sand/60 px-4 py-4 font-black text-ink">
-                  <Icon size={18} aria-hidden="true" /> {action.label}
+                <div key={action.label} className="flex min-h-24 flex-col items-start justify-between gap-3 rounded-2xl border border-ink/10 bg-sand/60 p-4 font-black text-ink">
+                  <span className="inline-flex items-center gap-2 leading-tight">
+                    <Icon size={18} className="shrink-0" aria-hidden="true" /> {action.label}
+                  </span>
                   <span className="rounded-full bg-white/80 px-2 py-1 text-[0.68rem] font-black text-ink/54">in voorbereiding</span>
                 </div>
               );
@@ -48,7 +50,20 @@ export function ProjectLeadCockpit() {
           </div>
           <div className="rounded-[2rem] border border-ink/10 bg-white/80 p-5 shadow-soft">
             <h3 className="text-2xl font-black">Vragen en ideeën van medewerkers</h3>
+            <p className="mt-2 text-sm font-bold leading-6 text-ink/62">
+              Publieke medewerkersinput komt hier binnen voor beoordeling en opvolging.
+            </p>
             <div className="mt-4 grid gap-3">
+              {employeeSubmissions.map((item) => (
+                <div key={item.title} className="rounded-2xl bg-lilac/30 p-4">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full bg-white px-3 py-2 text-xs font-black text-petrol">{item.type}</span>
+                    <span className="rounded-full bg-yellow/60 px-3 py-2 text-xs font-black text-petrol">{item.status}</span>
+                  </div>
+                  <p className="mt-3 font-black leading-tight">{item.title}</p>
+                  <p className="mt-1 text-sm font-bold leading-6 text-ink/60">{item.nextStep}</p>
+                </div>
+              ))}
               {ideas.map((idea) => (
                 <div key={idea.idea} className="rounded-2xl bg-white/85 p-4">
                   <p className="font-black">{idea.idea}</p>

@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { Lightbulb, Plus } from "lucide-react";
-import { ideas, topIdeas } from "@/lib/fonk-data";
+import { employeeSubmissions, ideas, topIdeas } from "@/lib/fonk-data";
 
-const statuses = ["Nieuw idee", "In beoordeling", "Omzetten naar project", "Parkeren", "Afgewezen met toelichting", "In uitvoering", "Afgerond"];
+const statuses = ["Ontvangen", "In beoordeling", "Bespreken", "Kleine verbetering", "Mogelijk project", "Gekoppeld aan project", "Afgerond"];
 const ideaFields = [
   ["Idee", "Bijvoorbeeld: overdracht korter maken"],
   ["Knelpunt uit de praktijk", "Waar loop je tegenaan?"],
@@ -103,6 +103,25 @@ export function IdeasHub() {
                 </button>
               </article>
             ))}
+          </div>
+          <div className="mt-6 rounded-[1.5rem] bg-lilac/30 p-5">
+            <h3 className="text-2xl font-black text-ink">Publieke medewerkersinput</h3>
+            <p className="mt-2 text-sm font-bold leading-6 text-ink/62">
+              Voorbeeldflow van input die zonder login via de website is ingediend.
+            </p>
+            <div className="mt-5 grid gap-3 md:grid-cols-3">
+              {employeeSubmissions.map((item) => (
+                <article key={item.title} className="rounded-2xl bg-white p-4 shadow-sm">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full bg-cream px-3 py-2 text-xs font-black text-petrol">{item.type}</span>
+                    <span className="rounded-full bg-yellow/60 px-3 py-2 text-xs font-black text-petrol">{item.status}</span>
+                  </div>
+                  <h4 className="mt-4 text-lg font-black leading-tight text-ink">{item.title}</h4>
+                  <p className="mt-2 text-sm font-bold text-ink/58">{item.team}</p>
+                  <p className="mt-3 text-sm font-bold leading-6 text-ink/64">{item.nextStep}</p>
+                </article>
+              ))}
+            </div>
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
             {statuses.map((status) => (

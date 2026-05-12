@@ -170,6 +170,18 @@ export const fonkProjects: FonkProject[] = [
 export const ideas = [
   {
     month: "Mei",
+    idea: "Overdrachtskaart voor avonddienst",
+    employee: "Anja",
+    team: "Zorg Thuis Drachten",
+    contact: "Annet Hunderman",
+    status: "Ontvangen",
+    linkedProject: "Verminderen registratiedruk",
+    review: "Nieuw medewerkerssignaal. Projectleider bekijkt of dit als kleine verbetering getest kan worden.",
+    impact: 74,
+    feasibility: 86,
+  },
+  {
+    month: "Mei",
     idea: "Minder dubbele registratie bij overdracht",
     employee: "Marieke",
     team: "Wijkteam Oost",
@@ -567,6 +579,8 @@ export const fonkMatchExamples = [
 ];
 
 export const kwadrantSignals = [
+  ["Zorg Thuis Drachten", "Overdrachtskaart voor avonddienst ingediend via publieke website", "Ontvangen"],
+  ["Wijkteam Oost", "Dubbele registratie kost tijd bij overdracht", "In beoordeling"],
   ["Kwaliteit", "Auditpunt bij medicatie-overdracht", "Extra evaluatie nodig"],
   ["Zorgteam Drachten", "Registratieveld wordt dubbel ingevuld", "Kleine verbetering"],
   ["BIS/ICT", "ECD-release raakt spraakrapportage", "Bespreken"],
@@ -620,6 +634,14 @@ export const kwadrantAccounts = [
     username: "barbara.lengkeek@kwadrant.fonk",
     password: "Kwadrant-FONK-05!",
     access: "Toegang tot projecten, FONK Match, regionale samenwerking, projectbibliotheek, signalen en impactoverzichten.",
+  },
+  {
+    name: "Annet Hunderman",
+    role: "Projectleider",
+    organization: "Kwadrant",
+    username: "annet.hunderman@kwadrant.fonk",
+    password: "Kwadrant-FONK-06!",
+    access: "Toegang tot projectdashboard, portfolio-overzicht, ideeën, signalen & verbeteringen, FONK Match, projectdetails, handouts, projectimpact en betrokken afdelingen.",
   },
 ];
 
@@ -771,6 +793,19 @@ export const fonkHandouts = [
 
 export const topIdeas = [
   {
+    title: "Overdrachtskaart voor avonddienst",
+    submitter: "Anja",
+    team: "Zorg Thuis Drachten",
+    theme: "Overdracht",
+    department: "Zorgteams",
+    status: "Ontvangen",
+    label: "Nieuw signaal",
+    likes: 12,
+    comments: 2,
+    impact: "werkdruk",
+    nextStep: "In beoordeling bij Annet Hunderman",
+  },
+  {
     title: "Minder dubbele registratie bij overdracht",
     submitter: "Marieke",
     team: "Wijkteam Oost",
@@ -821,6 +856,48 @@ export const topIdeas = [
     comments: 3,
     impact: "adoptie",
     nextStep: "Toevoegen aan pilotmateriaal",
+  },
+];
+
+export const employeeSubmissions = [
+  {
+    type: "Idee",
+    title: "Overdrachtskaart voor avonddienst",
+    submitter: "Anja",
+    email: "anja@kwadrant.example",
+    team: "Zorg Thuis Drachten",
+    status: "Ontvangen",
+    theme: "Overdracht",
+    summary: "In de avonddienst zoekt het team vaak dezelfde informatie opnieuw op.",
+    nextStep: "Projectleider Annet beoordeelt of dit als kleine test kan starten.",
+    linkedProject: "Verminderen registratiedruk",
+    contactAllowed: "ja",
+  },
+  {
+    type: "Knelpunt",
+    title: "Dubbele registratie bij wondzorg",
+    submitter: "Marieke",
+    email: "marieke@kwadrant.example",
+    team: "Wijkteam Oost",
+    status: "In beoordeling",
+    theme: "Registratiedruk",
+    summary: "Medewerkers vullen dezelfde wondinformatie op twee plekken in.",
+    nextStep: "Bespreken met kwaliteit en functioneel beheer.",
+    linkedProject: "Regionale samenwerking wondzorg",
+    contactAllowed: "ja",
+  },
+  {
+    type: "Resultaat",
+    title: "Teamhuddle medicatie getest",
+    submitter: "Bram",
+    email: "bram@kwadrant.example",
+    team: "Intramuraal Noord",
+    status: "Kleine verbetering",
+    theme: "Medicatieveiligheid",
+    summary: "Een korte huddle aan het begin van de dienst gaf meer rust en minder herstelvragen.",
+    nextStep: "Resultaat delen met project Slimmere medicatie-overdracht.",
+    linkedProject: "Slimmere medicatie-overdracht",
+    contactAllowed: "ja",
   },
 ];
 

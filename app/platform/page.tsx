@@ -3,7 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { afterProjectSteps, kwadrantAccounts, kwadrantMatches, kwadrantProjects, kwadrantSignals, roleAccess, superAdminAccount, topIdeas } from "@/lib/fonk-data";
+import { afterProjectSteps, employeeSubmissions, kwadrantAccounts, kwadrantMatches, kwadrantProjects, kwadrantSignals, roleAccess, superAdminAccount, topIdeas } from "@/lib/fonk-data";
 import {
   ArrowRight,
   AlertTriangle,
@@ -187,6 +187,22 @@ export default function PlatformPage() {
                 </article>
               ))}
             </div>
+            <div className="mt-8 rounded-[1.5rem] bg-cream p-5">
+              <p className="text-sm font-black uppercase tracking-[0.12em] text-petrol">Binnengekomen via publieke website</p>
+              <div className="mt-4 grid gap-3 md:grid-cols-3">
+                {employeeSubmissions.map((item) => (
+                  <article key={item.title} className="rounded-2xl bg-white p-4 shadow-sm">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="rounded-full bg-lilac/40 px-3 py-2 text-xs font-black text-petrol">{item.type}</span>
+                      <span className="rounded-full bg-yellow/55 px-3 py-2 text-xs font-black text-petrol">{item.status}</span>
+                    </div>
+                    <h3 className="mt-4 text-lg font-black leading-tight text-ink">{item.title}</h3>
+                    <p className="mt-2 text-sm font-bold text-ink/58">{item.team} · {item.submitter}</p>
+                    <p className="mt-3 text-sm font-bold leading-6 text-ink/64">{item.nextStep}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -258,6 +274,18 @@ export default function PlatformPage() {
                     </div>
                   </details>
                 ))}
+              </div>
+              <div className="mt-6 rounded-[1.5rem] bg-mist p-5">
+                <p className="text-sm font-black uppercase tracking-[0.12em] text-petrol">Medewerkersinput</p>
+                <div className="mt-4 grid gap-3">
+                  {employeeSubmissions.map((item) => (
+                    <div key={`${item.type}-${item.title}`} className="rounded-2xl bg-white p-4">
+                      <p className="text-sm font-black text-coral">{item.status}</p>
+                      <p className="mt-1 font-black text-ink">{item.title}</p>
+                      <p className="mt-1 text-sm font-bold leading-6 text-ink/62">{item.summary}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </article>
             <article className="rounded-[2rem] bg-white p-6 shadow-soft">

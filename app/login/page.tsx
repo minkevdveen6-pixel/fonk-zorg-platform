@@ -18,15 +18,18 @@ export default function LoginPage() {
         <section id="inloggen" className="container-page grid min-h-[calc(100svh-5rem)] scroll-mt-28 gap-8 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-2 text-sm font-black text-petrol shadow-sm">
-              <Building2 size={17} aria-hidden="true" /> Voor medewerkers, projectleiders, bestuur en beheer
+              <Building2 size={17} aria-hidden="true" /> Voor projectleiders, MT, directie, RvB en beheer
             </p>
             <h1 className="mt-7 text-5xl font-black leading-tight text-ink md:text-7xl">Welkom op FONK.</h1>
             <p className="mt-6 max-w-2xl text-xl leading-9 text-ink/72">
-              Log in en bouw mee aan verandering die werkt. FONK brengt ideeën, projecten en signalen samen in één duidelijke route.
+              Log in voor dashboards, portfolio, projectdetails, signalen, besluitvorming en organisatie-overzicht.
             </p>
             <p className="mt-5 max-w-xl font-black leading-7 text-petrol">
-              Ga aan de slag en creëer fonkjes van verandering.
+              Zorgmedewerkers kunnen ideeën, knelpunten en resultaten delen zonder account.
             </p>
+            <Link href="/voor-medewerkers#medewerkersinput" className="mt-6 inline-flex rounded-full bg-white px-5 py-3 font-black text-petrol shadow-sm">
+              Medewerkersinput zonder login
+            </Link>
           </div>
 
           <article className="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-soft md:p-8">
@@ -40,7 +43,7 @@ export default function LoginPage() {
               </div>
             </div>
             <p className="mt-6 rounded-2xl bg-lilac/35 p-4 text-sm font-bold leading-6 text-ink/70">
-              Voorbeeldomgeving voor Kwadrant. Kies een testgebruiker om de rolgerichte omgeving te bekijken.
+              Kwadrant-omgeving voor projectleiders, programmamanagers, MT, directie, RvB en platformbeheer. Medewerkersinput komt hier na indienen terug.
             </p>
             <div className="mt-8 grid gap-3">
               {["Portfolio beheren", "Projecten volgen", "Regionale samenwerking", "Signalen & verbeteringen", "Borging & doorontwikkeling"].map((item) => (
@@ -73,8 +76,8 @@ export default function LoginPage() {
                     <div className="border-t border-ink/8 px-4 py-3 font-bold text-ink"><span className="lg:hidden text-xs uppercase tracking-[0.12em] text-ink/45">Naam · </span>{account.name}</div>
                     <div className="border-t border-ink/8 px-4 py-3 text-sm font-bold text-ink/66"><span className="lg:hidden text-xs uppercase tracking-[0.12em] text-ink/45">Rol · </span>{account.role}</div>
                     <div className="border-t border-ink/8 px-4 py-3 text-sm font-bold text-ink/66"><span className="lg:hidden text-xs uppercase tracking-[0.12em] text-ink/45">Organisatie · </span>{account.organization}</div>
-                    <div className="border-t border-ink/8 px-4 py-3 text-sm font-bold text-petrol"><span className="lg:hidden text-xs uppercase tracking-[0.12em] text-ink/45">Gebruikersnaam · </span>{account.username}</div>
-                    <div className="border-t border-ink/8 px-4 py-3 text-sm font-black text-coral"><span className="lg:hidden text-xs uppercase tracking-[0.12em] text-ink/45">Wachtwoord · </span>{account.password}</div>
+                    <div className="break-anywhere border-t border-ink/8 px-4 py-3 text-sm font-bold text-petrol"><span className="lg:hidden text-xs uppercase tracking-[0.12em] text-ink/45">Gebruikersnaam · </span>{account.username}</div>
+                    <div className="break-anywhere border-t border-ink/8 px-4 py-3 text-sm font-black text-coral"><span className="lg:hidden text-xs uppercase tracking-[0.12em] text-ink/45">Wachtwoord · </span>{account.password}</div>
                   </div>
                 ))}
               </div>
